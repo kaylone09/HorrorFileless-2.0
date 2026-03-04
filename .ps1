@@ -168,7 +168,7 @@ $btnClose.Add_Click({
 $header.Controls.Add($btnClose)
 
 $lblTitle = New-Object System.Windows.Forms.Label
-$lblTitle.Text      = '☠ Horror clicker ☠'
+$lblTitle.Text      = 'Horror Clicker'
 $lblTitle.Location  = New-Object System.Drawing.Point(0, 15)
 $lblTitle.Size      = New-Object System.Drawing.Size(420, 35)
 $lblTitle.Font      = New-Object System.Drawing.Font('Segoe UI', 18, [System.Drawing.FontStyle]::Bold)
@@ -213,7 +213,7 @@ $btnLeftKey.Add_Click({
     $btnLeftKey.Text      = '...'
     $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(100, 80, 120)
     $btnLeftKey.ForeColor = [System.Drawing.Color]::White
-    $lblStatus.Text = 'suck my cap, asshole'
+    $lblStatus.Text = 'suck my cap- asshole'
     $form.Focus()
 })
 $ctrlPanel.Controls.Add($btnLeftKey)
@@ -299,7 +299,7 @@ $btnRightKey.Add_Click({
     $btnRightKey.Text      = '...'
     $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(100, 80, 120)
     $btnRightKey.ForeColor = [System.Drawing.Color]::White
-    $lblStatus.Text = 'suck my cap, asshole'
+    $lblStatus.Text = 'suck my cap- asshole'
     $form.Focus()
 })
 $ctrlPanel.Controls.Add($btnRightKey)
@@ -368,7 +368,7 @@ $footer.BackColor = [System.Drawing.Color]::FromArgb(38, 38, 45)
 $form.Controls.Add($footer)
 
 $lblStatus = New-Object System.Windows.Forms.Label
-$lblStatus.Text      = 'suck my cap, asshole'
+$lblStatus.Text      = 'suck my cap- asshole'
 $lblStatus.Location  = New-Object System.Drawing.Point(20, 10)
 $lblStatus.Size      = New-Object System.Drawing.Size(380, 32)
 $lblStatus.Font      = New-Object System.Drawing.Font('Segoe UI', 12, [System.Drawing.FontStyle]::Italic)
