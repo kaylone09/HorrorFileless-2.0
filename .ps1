@@ -168,7 +168,7 @@ $btnClose.Add_Click({
 $header.Controls.Add($btnClose)
 
 $lblTitle = New-Object System.Windows.Forms.Label
-$lblTitle.Text      = 'Horror Clicker'
+$lblTitle.Text      = 'Horror clicker'
 $lblTitle.Location  = New-Object System.Drawing.Point(0, 15)
 $lblTitle.Size      = New-Object System.Drawing.Size(420, 35)
 $lblTitle.Font      = New-Object System.Drawing.Font('Segoe UI', 18, [System.Drawing.FontStyle]::Bold)
@@ -176,8 +176,9 @@ $lblTitle.ForeColor = [System.Drawing.Color]::FromArgb(180, 130, 255)
 $lblTitle.TextAlign = 'MiddleCenter'
 $header.Controls.Add($lblTitle)
 
+# Foto a destra
 $picBox = New-Object System.Windows.Forms.PictureBox
-$picBox.Location = New-Object System.Drawing.Point(15, 75)
+$picBox.Location = New-Object System.Drawing.Point(240, 75)
 $picBox.Size     = New-Object System.Drawing.Size(150, 220)
 $picBox.SizeMode = 'Zoom'
 if ($state.bgImage) { $picBox.Image = $state.bgImage }
@@ -185,7 +186,7 @@ else { $picBox.BackColor = [System.Drawing.Color]::FromArgb(48, 48, 55) }
 $form.Controls.Add($picBox)
 
 $ctrlPanel = New-Object System.Windows.Forms.Panel
-$ctrlPanel.Location  = New-Object System.Drawing.Point(180, 75)
+$ctrlPanel.Location  = New-Object System.Drawing.Point(15, 75)
 $ctrlPanel.Size      = New-Object System.Drawing.Size(225, 220)
 $ctrlPanel.BackColor = [System.Drawing.Color]::Transparent
 $form.Controls.Add($ctrlPanel)
@@ -213,7 +214,7 @@ $btnLeftKey.Add_Click({
     $btnLeftKey.Text      = '...'
     $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(100, 80, 120)
     $btnLeftKey.ForeColor = [System.Drawing.Color]::White
-    $lblStatus.Text = 'suck my cap asshole'
+    $lblStatus.Text = 'suck my cap, asshole'
     $form.Focus()
 })
 $ctrlPanel.Controls.Add($btnLeftKey)
@@ -299,7 +300,7 @@ $btnRightKey.Add_Click({
     $btnRightKey.Text      = '...'
     $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(100, 80, 120)
     $btnRightKey.ForeColor = [System.Drawing.Color]::White
-    $lblStatus.Text = 'suck my cap- asshole'
+    $lblStatus.Text = 'suck my cap, asshole'
     $form.Focus()
 })
 $ctrlPanel.Controls.Add($btnRightKey)
@@ -368,7 +369,7 @@ $footer.BackColor = [System.Drawing.Color]::FromArgb(38, 38, 45)
 $form.Controls.Add($footer)
 
 $lblStatus = New-Object System.Windows.Forms.Label
-$lblStatus.Text      = 'suck my cap- asshole'
+$lblStatus.Text      = 'suck my cap, asshole'
 $lblStatus.Location  = New-Object System.Drawing.Point(20, 10)
 $lblStatus.Size      = New-Object System.Drawing.Size(380, 32)
 $lblStatus.Font      = New-Object System.Drawing.Font('Segoe UI', 12, [System.Drawing.FontStyle]::Italic)
@@ -377,7 +378,7 @@ $lblStatus.TextAlign = 'MiddleCenter'
 $footer.Controls.Add($lblStatus)
 
 $lblCredits = New-Object System.Windows.Forms.Label
-$lblCredits.Text      = 'Made By Daanii06_     :D'
+$lblCredits.Text      = 'Made By Daanii06_'
 $lblCredits.Location  = New-Object System.Drawing.Point(20, 45)
 $lblCredits.Size      = New-Object System.Drawing.Size(380, 25)
 $lblCredits.Font      = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
@@ -478,7 +479,7 @@ $form.Add_KeyDown({
             $btnRightKey.Text      = $ks
             $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
             $btnRightKey.ForeColor = [System.Drawing.Color]::White
-            $lblStatus.Text = "☠ Key set: $ks ☠"
+            $lblStatus.Text = "Key set: $ks"
             $state.waitingRight = $false
             $state.skipToggleR  = $true
         }
