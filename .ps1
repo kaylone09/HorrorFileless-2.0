@@ -213,7 +213,7 @@ $btnLeftKey.Add_Click({
     $btnLeftKey.Text      = '...'
     $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(100, 80, 120)
     $btnLeftKey.ForeColor = [System.Drawing.Color]::White
-    $lblStatus.Text = 'suck my cap- asshole'
+    $lblStatus.Text = 'suck my cap asshole'
     $form.Focus()
 })
 $ctrlPanel.Controls.Add($btnLeftKey)
@@ -377,7 +377,7 @@ $lblStatus.TextAlign = 'MiddleCenter'
 $footer.Controls.Add($lblStatus)
 
 $lblCredits = New-Object System.Windows.Forms.Label
-$lblCredits.Text      = 'Made By Daanii06_ :D'
+$lblCredits.Text      = 'Made By Daanii06_     :D'
 $lblCredits.Location  = New-Object System.Drawing.Point(20, 45)
 $lblCredits.Size      = New-Object System.Drawing.Size(380, 25)
 $lblCredits.Font      = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
