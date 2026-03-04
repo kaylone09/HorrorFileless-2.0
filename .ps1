@@ -120,7 +120,7 @@ $form = New-Object System.Windows.Forms.Form
 $form.Text            = ''
 $form.Size            = New-Object System.Drawing.Size(420, 380)
 $form.StartPosition   = 'CenterScreen'
-$form.BackColor       = [System.Drawing.Color]::FromArgb(28, 28, 35)
+$form.BackColor       = [System.Drawing.Color]::FromArgb(20, 20, 30)
 $form.FormBorderStyle = 'None'
 $form.MaximizeBox     = $false
 $form.MinimizeBox     = $false
@@ -131,7 +131,7 @@ $form.TopMost         = $true
 $header = New-Object System.Windows.Forms.Panel
 $header.Location  = New-Object System.Drawing.Point(0, 0)
 $header.Size      = New-Object System.Drawing.Size(420, 60)
-$header.BackColor = [System.Drawing.Color]::FromArgb(38, 38, 45)
+$header.BackColor = [System.Drawing.Color]::FromArgb(30, 30, 45)
 $form.Controls.Add($header)
 
 $btnMin = New-Object System.Windows.Forms.Button
@@ -141,9 +141,9 @@ $btnMin.Size      = New-Object System.Drawing.Size(30, 30)
 $btnMin.FlatStyle = 'Flat'
 $btnMin.FlatAppearance.BorderSize = 0
 $btnMin.BackColor = [System.Drawing.Color]::Transparent
-$btnMin.ForeColor = [System.Drawing.Color]::White
+$btnMin.ForeColor = [System.Drawing.Color]::FromArgb(180, 130, 255)
 $btnMin.Font      = New-Object System.Drawing.Font('Segoe UI', 14, [System.Drawing.FontStyle]::Bold)
-$btnMin.Add_MouseEnter({ $btnMin.BackColor = [System.Drawing.Color]::FromArgb(70, 70, 80) })
+$btnMin.Add_MouseEnter({ $btnMin.BackColor = [System.Drawing.Color]::FromArgb(80, 70, 100) })
 $btnMin.Add_MouseLeave({ $btnMin.BackColor = [System.Drawing.Color]::Transparent })
 $btnMin.Add_Click({ $form.WindowState = 'Minimized' })
 $header.Controls.Add($btnMin)
@@ -155,7 +155,7 @@ $btnClose.Size      = New-Object System.Drawing.Size(30, 30)
 $btnClose.FlatStyle = 'Flat'
 $btnClose.FlatAppearance.BorderSize = 0
 $btnClose.BackColor = [System.Drawing.Color]::Transparent
-$btnClose.ForeColor = [System.Drawing.Color]::White
+$btnClose.ForeColor = [System.Drawing.Color]::FromArgb(180, 130, 255)
 $btnClose.Font      = New-Object System.Drawing.Font('Segoe UI', 12, [System.Drawing.FontStyle]::Bold)
 $btnClose.Add_MouseEnter({ $btnClose.BackColor = [System.Drawing.Color]::FromArgb(200, 50, 50) })
 $btnClose.Add_MouseLeave({ $btnClose.BackColor = [System.Drawing.Color]::Transparent })
@@ -182,7 +182,7 @@ $picBox.Location = New-Object System.Drawing.Point(15, 75)
 $picBox.Size     = New-Object System.Drawing.Size(150, 220)
 $picBox.SizeMode = 'Zoom'
 if ($state.bgImage) { $picBox.Image = $state.bgImage }
-else { $picBox.BackColor = [System.Drawing.Color]::FromArgb(48, 48, 55) }
+else { $picBox.BackColor = [System.Drawing.Color]::FromArgb(40, 40, 55) }
 $form.Controls.Add($picBox)
 
 $ctrlPanel = New-Object System.Windows.Forms.Panel
@@ -196,7 +196,7 @@ $lblLeft.Text      = 'Left Click'
 $lblLeft.Location  = New-Object System.Drawing.Point(10, 15)
 $lblLeft.Size      = New-Object System.Drawing.Size(205, 22)
 $lblLeft.Font      = New-Object System.Drawing.Font('Segoe UI', 11, [System.Drawing.FontStyle]::Bold)
-$lblLeft.ForeColor = [System.Drawing.Color]::FromArgb(200, 200, 220)
+$lblLeft.ForeColor = [System.Drawing.Color]::FromArgb(180, 130, 255)
 $ctrlPanel.Controls.Add($lblLeft)
 
 $btnLeftKey = New-Object System.Windows.Forms.Button
@@ -204,15 +204,15 @@ $btnLeftKey.Text      = 'none'
 $btnLeftKey.Location  = New-Object System.Drawing.Point(10, 42)
 $btnLeftKey.Size      = New-Object System.Drawing.Size(90, 28)
 $btnLeftKey.FlatStyle = 'Flat'
-$btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
+$btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(45, 45, 65)
 $btnLeftKey.ForeColor = [System.Drawing.Color]::White
 $btnLeftKey.Font      = New-Object System.Drawing.Font('Segoe UI', 9, [System.Drawing.FontStyle]::Bold)
-$btnLeftKey.FlatAppearance.BorderColor = [System.Drawing.Color]::FromArgb(80, 80, 90)
+$btnLeftKey.FlatAppearance.BorderColor = [System.Drawing.Color]::FromArgb(100, 80, 150)
 $btnLeftKey.FlatAppearance.BorderSize  = 1
 $btnLeftKey.Add_Click({
     $state.waitingLeft = $true
     $btnLeftKey.Text      = '...'
-    $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(100, 80, 120)
+    $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(120, 80, 170)
     $btnLeftKey.ForeColor = [System.Drawing.Color]::White
     $lblStatus.Text = 'suck my cap, asshole'
     $form.Focus()
@@ -232,7 +232,7 @@ $ctrlPanel.Controls.Add($lblLeftCps)
 $sliderLeftBg = New-Object System.Windows.Forms.Panel
 $sliderLeftBg.Location    = New-Object System.Drawing.Point(10, 75)
 $sliderLeftBg.Size        = New-Object System.Drawing.Size(205, 12)
-$sliderLeftBg.BackColor   = [System.Drawing.Color]::FromArgb(48, 48, 58)
+$sliderLeftBg.BackColor   = [System.Drawing.Color]::FromArgb(40, 40, 55)
 $sliderLeftBg.BorderStyle = 'FixedSingle'
 $sliderLeftBg.Cursor      = [System.Windows.Forms.Cursors]::Hand
 
@@ -282,7 +282,7 @@ $lblRight.Text      = 'Right Click'
 $lblRight.Location  = New-Object System.Drawing.Point(10, 105)
 $lblRight.Size      = New-Object System.Drawing.Size(205, 22)
 $lblRight.Font      = New-Object System.Drawing.Font('Segoe UI', 11, [System.Drawing.FontStyle]::Bold)
-$lblRight.ForeColor = [System.Drawing.Color]::FromArgb(200, 200, 220)
+$lblRight.ForeColor = [System.Drawing.Color]::FromArgb(180, 130, 255)
 $ctrlPanel.Controls.Add($lblRight)
 
 $btnRightKey = New-Object System.Windows.Forms.Button
@@ -290,15 +290,15 @@ $btnRightKey.Text      = 'none'
 $btnRightKey.Location  = New-Object System.Drawing.Point(10, 132)
 $btnRightKey.Size      = New-Object System.Drawing.Size(90, 28)
 $btnRightKey.FlatStyle = 'Flat'
-$btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
+$btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(45, 45, 65)
 $btnRightKey.ForeColor = [System.Drawing.Color]::White
 $btnRightKey.Font      = New-Object System.Drawing.Font('Segoe UI', 9, [System.Drawing.FontStyle]::Bold)
-$btnRightKey.FlatAppearance.BorderColor = [System.Drawing.Color]::FromArgb(80, 80, 90)
+$btnRightKey.FlatAppearance.BorderColor = [System.Drawing.Color]::FromArgb(100, 80, 150)
 $btnRightKey.FlatAppearance.BorderSize  = 1
 $btnRightKey.Add_Click({
     $state.waitingRight = $true
     $btnRightKey.Text      = '...'
-    $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(100, 80, 120)
+    $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(120, 80, 170)
     $btnRightKey.ForeColor = [System.Drawing.Color]::White
     $lblStatus.Text = 'suck my cap, asshole'
     $form.Focus()
@@ -317,7 +317,7 @@ $ctrlPanel.Controls.Add($lblRightCps)
 $sliderRightBg = New-Object System.Windows.Forms.Panel
 $sliderRightBg.Location    = New-Object System.Drawing.Point(10, 165)
 $sliderRightBg.Size        = New-Object System.Drawing.Size(205, 12)
-$sliderRightBg.BackColor   = [System.Drawing.Color]::FromArgb(48, 48, 58)
+$sliderRightBg.BackColor   = [System.Drawing.Color]::FromArgb(40, 40, 55)
 $sliderRightBg.BorderStyle = 'FixedSingle'
 $sliderRightBg.Cursor      = [System.Windows.Forms.Cursors]::Hand
 
@@ -365,7 +365,7 @@ $ctrlPanel.Controls.Add($sliderRightBg)
 $footer = New-Object System.Windows.Forms.Panel
 $footer.Location  = New-Object System.Drawing.Point(0, 305)
 $footer.Size      = New-Object System.Drawing.Size(420, 75)
-$footer.BackColor = [System.Drawing.Color]::FromArgb(38, 38, 45)
+$footer.BackColor = [System.Drawing.Color]::FromArgb(30, 30, 45)
 $form.Controls.Add($footer)
 
 $lblStatus = New-Object System.Windows.Forms.Label
@@ -382,7 +382,7 @@ $lblCredits.Text      = 'Made By Daanii06_'
 $lblCredits.Location  = New-Object System.Drawing.Point(20, 45)
 $lblCredits.Size      = New-Object System.Drawing.Size(380, 25)
 $lblCredits.Font      = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
-$lblCredits.ForeColor = [System.Drawing.Color]::FromArgb(140, 140, 160)
+$lblCredits.ForeColor = [System.Drawing.Color]::FromArgb(140, 110, 180)
 $lblCredits.TextAlign = 'MiddleCenter'
 $footer.Controls.Add($lblCredits)
 
@@ -434,7 +434,7 @@ function Toggle-Left {
         $state.leftTimer.Add_Tick({ Invoke-Expression "[$($script:uid1)]::ClickLeft()" })
         $state.leftTimer.Start()
     } else {
-        $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
+        $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(45, 45, 65)
         $btnLeftKey.ForeColor = [System.Drawing.Color]::White
         $lblStatus.Text = 'Left stopped'
         if ($state.leftTimer) { $state.leftTimer.Stop() }
@@ -453,7 +453,7 @@ function Toggle-Right {
         $state.rightTimer.Add_Tick({ Invoke-Expression "[$($script:uid1)]::ClickRight()" })
         $state.rightTimer.Start()
     } else {
-        $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
+        $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(45, 45, 65)
         $btnRightKey.ForeColor = [System.Drawing.Color]::White
         $lblStatus.Text = 'Right stopped'
         if ($state.rightTimer) { $state.rightTimer.Stop() }
@@ -467,7 +467,7 @@ $form.Add_KeyDown({
         if ($keyMap.ContainsKey($ks)) {
             $state.leftVK         = $keyMap[$ks]
             $btnLeftKey.Text      = $ks
-            $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
+            $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(45, 45, 65)
             $btnLeftKey.ForeColor = [System.Drawing.Color]::White
             $lblStatus.Text = "Key set: $ks"
             $state.waitingLeft  = $false
@@ -477,7 +477,7 @@ $form.Add_KeyDown({
         if ($keyMap.ContainsKey($ks)) {
             $state.rightVK         = $keyMap[$ks]
             $btnRightKey.Text      = $ks
-            $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
+            $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(45, 45, 65)
             $btnRightKey.ForeColor = [System.Drawing.Color]::White
             $lblStatus.Text = "Key set: $ks"
             $state.waitingRight = $false
