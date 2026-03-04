@@ -378,7 +378,7 @@ $lblDecL.TextAlign = 'MiddleLeft'
 $footer.Controls.Add($lblDecL)
 
 $lblStatus = New-Object System.Windows.Forms.Label
-$lblStatus.Text      = [char]0x2601 + ' Ready ' + [char]0x2601
+$lblStatus.Text      = [char]0x2601 + ' suck my cap, asshole. ' + [char]0x2601
 $lblStatus.Location  = New-Object System.Drawing.Point(80, 8)
 $lblStatus.Size      = New-Object System.Drawing.Size(260, 32)
 $lblStatus.Font      = New-Object System.Drawing.Font('Segoe UI', 12, [System.Drawing.FontStyle]::Italic)
