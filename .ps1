@@ -1,12 +1,10 @@
-# ShadowClicker - by Tonynoh
+# HorrorClicker - by Daanii06_
 
 $ErrorActionPreference = 'SilentlyContinue'
 
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-# --- P/Invoke for SendInput and GetAsyncKeyState ---
-# Random class names to avoid type conflicts if the script is reloaded in the same session
 $script:uid1 = -join ((65..90) + (97..122) | Get-Random -Count 15 | % { [char]$_ })
 $script:uid2 = -join ((65..90) + (97..122) | Get-Random -Count 14 | % { [char]$_ })
 $tmpId = Get-Random -Minimum 1000 -Maximum 9999
@@ -61,7 +59,6 @@ if (-not ([System.Management.Automation.PSTypeName]$script:uid1).Type) {
     Add-Type -TypeDefinition $nativeCode
 }
 
-# --- Global state ---
 $state = @{
     leftActive     = $false
     rightActive    = $false
@@ -85,7 +82,6 @@ $state = @{
     bgImage        = $null
 }
 
-# Supported keys map (VK codes)
 $keyMap = @{
     'F1'=0x70;'F2'=0x71;'F3'=0x72;'F4'=0x73;'F5'=0x74;'F6'=0x75
     'F7'=0x76;'F8'=0x77;'F9'=0x78;'F10'=0x79;'F11'=0x7A;'F12'=0x7B
@@ -100,7 +96,6 @@ $keyMap = @{
     'XButton1'=0x05;'XButton2'=0x06
 }
 
-# --- Decorative image (optional, non-blocking) ---
 $imgPath = "$env:TEMP\$tmpId.tmp"
 if (-not (Test-Path $imgPath)) {
     try {
@@ -122,9 +117,6 @@ if (Test-Path $imgPath) {
     } catch {}
 }
 
-# ============================================================
-# GUI
-# ============================================================
 $form = New-Object System.Windows.Forms.Form
 $form.Text            = ''
 $form.Size            = New-Object System.Drawing.Size(420, 380)
@@ -137,7 +129,6 @@ $form.ShowInTaskbar   = $true
 $form.KeyPreview      = $true
 $form.TopMost         = $true
 
-# Titlebar
 $header = New-Object System.Windows.Forms.Panel
 $header.Location  = New-Object System.Drawing.Point(0, 0)
 $header.Size      = New-Object System.Drawing.Size(420, 60)
@@ -186,7 +177,6 @@ $lblTitle.ForeColor = [System.Drawing.Color]::White
 $lblTitle.TextAlign = 'MiddleCenter'
 $header.Controls.Add($lblTitle)
 
-# Side image
 $picBox = New-Object System.Windows.Forms.PictureBox
 $picBox.Location = New-Object System.Drawing.Point(15, 75)
 $picBox.Size     = New-Object System.Drawing.Size(150, 220)
@@ -195,14 +185,12 @@ if ($state.bgImage) { $picBox.Image = $state.bgImage }
 else { $picBox.BackColor = [System.Drawing.Color]::FromArgb(220, 220, 220) }
 $form.Controls.Add($picBox)
 
-# Controls panel
 $ctrlPanel = New-Object System.Windows.Forms.Panel
 $ctrlPanel.Location  = New-Object System.Drawing.Point(180, 75)
 $ctrlPanel.Size      = New-Object System.Drawing.Size(225, 220)
 $ctrlPanel.BackColor = [System.Drawing.Color]::Transparent
 $form.Controls.Add($ctrlPanel)
 
-# -- LEFT --
 $lblLeft = New-Object System.Windows.Forms.Label
 $lblLeft.Text      = [char]0x25C8 + ' Left Action'
 $lblLeft.Location  = New-Object System.Drawing.Point(10, 15)
@@ -289,7 +277,6 @@ $sliderLeftBg.Add_MouseMove({
 $sliderLeftBg.Add_MouseUp({ $state.leftBarDrag = $false })
 $ctrlPanel.Controls.Add($sliderLeftBg)
 
-# -- RIGHT --
 $lblRight = New-Object System.Windows.Forms.Label
 $lblRight.Text      = [char]0x25C8 + ' Right Action'
 $lblRight.Location  = New-Object System.Drawing.Point(10, 105)
@@ -327,7 +314,6 @@ $lblRightCps.ForeColor = [System.Drawing.Color]::FromArgb(40, 40, 40)
 $lblRightCps.TextAlign = 'MiddleRight'
 $ctrlPanel.Controls.Add($lblRightCps)
 
-# Right slider
 $sliderRightBg = New-Object System.Windows.Forms.Panel
 $sliderRightBg.Location    = New-Object System.Drawing.Point(10, 165)
 $sliderRightBg.Size        = New-Object System.Drawing.Size(205, 12)
@@ -376,7 +362,6 @@ $sliderRightBg.Add_MouseMove({
 $sliderRightBg.Add_MouseUp({ $state.rightBarDrag = $false })
 $ctrlPanel.Controls.Add($sliderRightBg)
 
-# Footer
 $footer = New-Object System.Windows.Forms.Panel
 $footer.Location  = New-Object System.Drawing.Point(0, 305)
 $footer.Size      = New-Object System.Drawing.Size(420, 75)
@@ -419,7 +404,6 @@ $lblCredits.ForeColor = [System.Drawing.Color]::FromArgb(120, 120, 120)
 $lblCredits.TextAlign = 'MiddleCenter'
 $footer.Controls.Add($lblCredits)
 
-# Drag borderless form
 $form.Add_MouseDown({
     param($s, $e)
     if ($e.Button -eq [System.Windows.Forms.MouseButtons]::Left) {
@@ -456,9 +440,6 @@ $header.Add_MouseMove({
 })
 $header.Add_MouseUp({ $state.formDrag = $false })
 
-# ============================================================
-# Autoclicker toggle
-# ============================================================
 function Toggle-Left {
     $state.leftActive = -not $state.leftActive
     if ($state.leftActive) {
@@ -497,7 +478,6 @@ function Toggle-Right {
     }
 }
 
-# Capture hotkey
 $form.Add_KeyDown({
     param($s, $e)
     $ks = $e.KeyCode.ToString()
@@ -524,7 +504,6 @@ $form.Add_KeyDown({
     }
 })
 
-# Poll hotkey (50ms)
 $state.pollTimer = New-Object System.Windows.Forms.Timer
 $state.pollTimer.Interval = 50
 
