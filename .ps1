@@ -169,7 +169,7 @@ $btnClose.Add_Click({
 $header.Controls.Add($btnClose)
 
 $lblTitle = New-Object System.Windows.Forms.Label
-$lblTitle.Text      = [char]0x2601 + ' Shadow Clicker ' + [char]0x2601
+$lblTitle.Text      = [char]0x2601 + ' Horror clicker ' + [char]0x2601
 $lblTitle.Location  = New-Object System.Drawing.Point(0, 15)
 $lblTitle.Size      = New-Object System.Drawing.Size(420, 35)
 $lblTitle.Font      = New-Object System.Drawing.Font('Segoe UI', 18, [System.Drawing.FontStyle]::Bold)
@@ -396,7 +396,7 @@ $lblDecR.TextAlign = 'MiddleRight'
 $footer.Controls.Add($lblDecR)
 
 $lblCredits = New-Object System.Windows.Forms.Label
-$lblCredits.Text      = 'Made By Tonynoh'
+$lblCredits.Text      = 'Made By Daanii06_'
 $lblCredits.Location  = New-Object System.Drawing.Point(20, 45)
 $lblCredits.Size      = New-Object System.Drawing.Size(380, 25)
 $lblCredits.Font      = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
