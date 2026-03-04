@@ -191,7 +191,7 @@ $ctrlPanel.BackColor = [System.Drawing.Color]::Transparent
 $form.Controls.Add($ctrlPanel)
 
 $lblLeft = New-Object System.Windows.Forms.Label
-$lblLeft.Text      = '☠ Left Click ☠'
+$lblLeft.Text      = 'Left Click'
 $lblLeft.Location  = New-Object System.Drawing.Point(10, 15)
 $lblLeft.Size      = New-Object System.Drawing.Size(205, 22)
 $lblLeft.Font      = New-Object System.Drawing.Font('Segoe UI', 11, [System.Drawing.FontStyle]::Bold)
@@ -277,7 +277,7 @@ $sliderLeftBg.Add_MouseUp({ $state.leftBarDrag = $false })
 $ctrlPanel.Controls.Add($sliderLeftBg)
 
 $lblRight = New-Object System.Windows.Forms.Label
-$lblRight.Text      = '☠ Right Click ☠'
+$lblRight.Text      = 'Right Click'
 $lblRight.Location  = New-Object System.Drawing.Point(10, 105)
 $lblRight.Size      = New-Object System.Drawing.Size(205, 22)
 $lblRight.Font      = New-Object System.Drawing.Font('Segoe UI', 11, [System.Drawing.FontStyle]::Bold)
@@ -377,7 +377,7 @@ $lblStatus.TextAlign = 'MiddleCenter'
 $footer.Controls.Add($lblStatus)
 
 $lblCredits = New-Object System.Windows.Forms.Label
-$lblCredits.Text      = '☠ Made By Daanii06_ ☠'
+$lblCredits.Text      = 'Made By Daanii06_ :D'
 $lblCredits.Location  = New-Object System.Drawing.Point(20, 45)
 $lblCredits.Size      = New-Object System.Drawing.Size(380, 25)
 $lblCredits.Font      = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
@@ -426,7 +426,7 @@ function Toggle-Left {
     if ($state.leftActive) {
         $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(140, 100, 200)
         $btnLeftKey.ForeColor = [System.Drawing.Color]::White
-        $lblStatus.Text = '☠ LEFT ACTIVE ☠'
+        $lblStatus.Text = 'LEFT ACTIVE'
         if ($state.leftTimer) { $state.leftTimer.Stop(); $state.leftTimer.Dispose() }
         $state.leftTimer = New-Object System.Windows.Forms.Timer
         $state.leftTimer.Interval = [math]::Max(1, [int](1000.0 / $state.leftCps))
@@ -435,7 +435,7 @@ function Toggle-Left {
     } else {
         $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
         $btnLeftKey.ForeColor = [System.Drawing.Color]::White
-        $lblStatus.Text = '☠ Left stopped ☠'
+        $lblStatus.Text = 'Left stopped'
         if ($state.leftTimer) { $state.leftTimer.Stop() }
     }
 }
@@ -445,7 +445,7 @@ function Toggle-Right {
     if ($state.rightActive) {
         $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(140, 100, 200)
         $btnRightKey.ForeColor = [System.Drawing.Color]::White
-        $lblStatus.Text = '☠ RIGHT ACTIVE ☠'
+        $lblStatus.Text = 'RIGHT ACTIVE'
         if ($state.rightTimer) { $state.rightTimer.Stop(); $state.rightTimer.Dispose() }
         $state.rightTimer = New-Object System.Windows.Forms.Timer
         $state.rightTimer.Interval = [math]::Max(1, [int](1000.0 / $state.rightCps))
@@ -454,7 +454,7 @@ function Toggle-Right {
     } else {
         $btnRightKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
         $btnRightKey.ForeColor = [System.Drawing.Color]::White
-        $lblStatus.Text = '☠ Right stopped ☠'
+        $lblStatus.Text = 'Right stopped'
         if ($state.rightTimer) { $state.rightTimer.Stop() }
     }
 }
@@ -468,7 +468,7 @@ $form.Add_KeyDown({
             $btnLeftKey.Text      = $ks
             $btnLeftKey.BackColor = [System.Drawing.Color]::FromArgb(58, 58, 68)
             $btnLeftKey.ForeColor = [System.Drawing.Color]::White
-            $lblStatus.Text = "☠ Key set: $ks ☠"
+            $lblStatus.Text = "Key set: $ks"
             $state.waitingLeft  = $false
             $state.skipToggleL  = $true
         }
